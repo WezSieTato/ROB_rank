@@ -1,4 +1,4 @@
-function lab = lcvoting(ovocls, samples)
+function lab = lcvotingAndDecision(ovocls, samples)
 % Zlicza głosy oddane przez klasyfikatory z zespołu ovocls,
 % a nastepnie podejmuje decyzje klasyfikacji
 % ovocls - zespół klasyfikatorów liniowych:
