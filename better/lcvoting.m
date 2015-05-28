@@ -18,7 +18,6 @@ augument = ones(rows(samples), 1);
 		votes(!posidx, ovocls(cls,2)) += 1;
 	end
 	
-threshold = columns(votes) - 1;
 [mv lab] = max(votes, [], 2);
 oneCount = sum(votes == mv, 2);
 
@@ -31,7 +30,7 @@ oneCount = sum(votes == mv, 2);
 			
 			for p = 1 : rows(pairs)
 			
-				ovo = ovocls(sum((ovocls(:,1:2) == pairs(p, :)),2) == 2, 3:end);
+				ovo = ovocls(all (bsxfun (@eq, ovocls(:,1:2), pairs(p, :)), 2), 3:end);
 				pp = [1 samples(it, :)] * ovo' > 0;
 				votes(it, ovocls(cls,1)) += pp;
 				votes(it, ovocls(cls,2)) += !pp;
