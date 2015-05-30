@@ -1,4 +1,4 @@
-function [ovocls ovoerr] = trainovo(tvec, tlab, trainrep = 3)
+function [ovocls ovoerr] = trainovo(tvec, tlab, trainrep = 10)
 %
 % tvec - zbiór uczący ( próbka == wiesz)
 % tlab - wektor etykiet próbek w zbiorze uczącym
@@ -20,7 +20,7 @@ function [ovocls ovoerr] = trainovo(tvec, tlab, trainrep = 3)
 		negidx = tlab == pairs(cls, 2);
 		
 		for rep = 1:trainrep
-			[seppl(rep, :) errcf(rep)] = trainlc(tvec(posidx, :), tvec(negidx, :));
+			[seppl(rep, :) errcf(rep)] = trainlc(tvec(posidx, :), tvec(negidx, :), trainrep);
 		end
 
 		[minerr minidx] = min(errcf);
