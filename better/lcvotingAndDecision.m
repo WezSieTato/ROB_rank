@@ -6,7 +6,7 @@ function lab = lcvotingAndDecision(ovocls, samples)
 %		druga kolumna zawiera etykietę klasy po ujemnej stronie płaszczyzny
 % 		kolumny 3 : end - współczynniki płaszczyzny separującej
 % votes - macierz głosowania (wiersze - probki z samples, kolumny - etykiety klas
-% lab - wektor klas
+% lab - wektor klas sklasyfikowanych poprzez glosowanie
 
 labels = unique(ovocls(:, 1:2));
 votes = zeros(rows(samples), rows(labels));
